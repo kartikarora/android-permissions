@@ -2,4 +2,11 @@
     <div class="text-center">
         <h2>All the permissions, you're welcome</h2>
     </div>
+    {% for permission_four in permissions|sort|slice(4) -%}
+        {%- for permission in permission_four -%}
+            <div class="col-md-3">
+                <h5><a href="{{ url_for('detail',permission=permission) }}">{{ permission }}</a></h5>
+            </div>
+        {%- endfor %}
+    {%- endfor %}
 </div>

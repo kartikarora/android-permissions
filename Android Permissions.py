@@ -1,7 +1,8 @@
 import os
 
-from flask import Flask, render_template, json, jsonify
-from flask import make_response
+import untangle
+from dicttoxml import dicttoxml
+from flask import Flask, render_template, json, jsonify, make_response, Response
 
 app = Flask(__name__)
 
@@ -13,6 +14,8 @@ with open(name=os.path.dirname(__file__) + '/static/json/permission_info.json') 
     data = perms_info_fp.read().encode('ascii', 'ignore')
     perms_info = json.loads(data)
 
+perms_names_xml = dicttoxml(obj=perms_names, custom_root='permissions')
+
 
 @app.route('/')
 def home():
@@ -21,29 +24,48 @@ def home():
 
 @app.route('/list')
 def list():
-    return render_template('layout.html', container='list', perms_names=perms_names)
+    print perms_names
+    return render_template('layout.html', container='list', permissions=perms_names)
 
 
 @app.route('/list/json', methods=['GET', 'POST'])
-def list_api():
+def list_json():
     return make_response(jsonify(perms_names), 200)
+
+
+@app.route('/list/xml', methods=['GET', 'POST'])
+def list_xml():
+    response = make_response(perms_names_xml, 200)
+    response.headers['Content-type'] = 'application/xml'
+    return response
 
 
 @app.route('/detail/<string:permission>')
 def detail(permission):
-    name = permission
+    name = permission.upper()
     permission = perms_info[name]
     permission['name'] = name
     return render_template('layout.html', container='detail', permission=permission)
 
 
 @app.route('/detail/<string:permission>/json', methods=['GET', 'POST'])
-def detail_api(permission):
-    name = permission
+def detail_json(permission):
+    name = permission.upper()
     permission = perms_info[name]
     permission['name'] = name
     permission['url'] = 'https://developer.android.com/reference/android/Manifest.permission.html#' + name
     return make_response(jsonify(permission), 200)
+
+
+@app.route('/detail/<string:permission>/xml', methods=['GET', 'POST'])
+def detail_xml(permission):
+    name = permission.upper()
+    permission = perms_info[name]
+    permission['name'] = name
+    permission['url'] = 'https://developer.android.com/reference/android/Manifest.permission.html#' + name
+    response = make_response(dicttoxml(obj=permission, custom_root=name), 200)
+    response.headers['Content-type'] = 'application/xml'
+    return response
 
 
 if __name__ == '__main__':
