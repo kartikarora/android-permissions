@@ -1,0 +1,119 @@
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+<script
+        src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+    {% if request.endpoint=='home' %}
+        var perms_names = {{ perms_names|tojson }};
+        var perms_info = {{ perms_info|tojson }};
+        $(document).ready(function () {
+            $('#search').autocomplete({
+                source: perms_names,
+                select: function (event, ui) {
+                    var name = ui['item']['value'];
+                    $('#perm').empty().append(createElement(name))
+                }
+            });
+        });
+
+        function createElement(name) {
+            var perm = perms_info[name];
+            var api = perm['api_level'];
+            var level = perm['level'];
+            var desc = perm['desc'];
+            var dep = perm['deprecated'];
+            var cons = perm['constant'];
+            var div_outer = $('<div/>', {
+                class: 'col-md-8 col-md-offset-2 vcenter'
+            });
+            var div_inner_1 = $('<div/>', {
+                class: 'col-md-8'
+            }).appendTo(div_outer);
+            var a = $('<a/>', {
+                href: 'https://developer.android.com/reference/android/Manifest.permission.html#' + name,
+                target: '_blank'
+            }).appendTo(div_inner_1);
+            $('<h3/>', {
+                style: 'margin-top: 10px !important;',
+                class: 'text-primary',
+                text: name
+            }).appendTo(a);
+
+            var div_inner_2 = $('<div/>', {
+                class: 'col-md-4',
+                style: 'padding-top: 11px !important;'
+            }).appendTo(div_outer);
+            $('<h5/>', {
+                class: 'text-muted text-right',
+                text: 'API Level ' + api
+            }).appendTo(div_inner_2);
+
+            var div_inner_3 = $('<div/>', {
+                class: 'col-md-12'
+            }).appendTo(div_outer);
+            var h5_2 = $('<h5/>', {
+                text: desc
+            }).appendTo(div_inner_3);
+            h5_2.html(h5_2.html().replace(/\n/g, '<br/>'));
+
+            var div_inner_4 = $('<div/>', {
+                class: 'col-md-12'
+            }).appendTo(div_outer);
+
+            var div_inner_inner_1 = $('<div/>', {
+                class: 'col-md-6'
+            }).appendTo(div_inner_4);
+            $('<h5/>', {
+                text: 'Constant: \"' + cons + '\"',
+                style: 'padding: 5px !important;'
+            }).appendTo(div_inner_inner_1);
+
+            if (dep == 1) {
+                var check = 'text-danger';
+                var value = 'Deprecated';
+            }
+            else if (dep == 0) {
+                check = 'text-success';
+                value = 'Not deprecated';
+
+            }
+            var div_inner_inner_2 = $('<div/>', {
+                class: 'col-md-3'
+            }).appendTo(div_inner_4);
+
+            $('<h5/>', {
+                text: value,
+                class: check + ' text-center',
+                style: 'padding: 5px !important;'
+            }).appendTo(div_inner_inner_2);
+
+            if (level == 1) {
+                check = 'box-dangerous';
+                value = 'Dangerous';
+            }
+            else if (level == 0) {
+                check = 'box-normal';
+                value = 'Normal';
+            }
+            else if (level == -1) {
+                check = 'box-system';
+                value = 'System';
+            }
+            var div_inner_inner_3 = $('<div/>', {
+                class: 'col-md-3'
+            }).appendTo(div_inner_4);
+            $('<h5/>', {
+                text: value,
+                class: check
+            }).appendTo(div_inner_inner_3);
+
+            return div_outer;
+        }
+    {% endif %}
+</script>

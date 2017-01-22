@@ -1,0 +1,82 @@
+.material-icons.md-16 {
+    font-size: 16px;
+}
+
+.material-icons.md-14 {
+    font-size: 14px;
+}
+
+.material-icons.md-12 {
+    font-size: 12px;
+}
+
+.material-icons.md-32 {
+    font-size: 32px;
+}
+
+.material-icons.md-white {
+    color: #FFFFFF;
+}
+
+.material-icons.md-black {
+    color: #000000;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.permission-search {
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.permission-search input {
+    border: 0;
+    box-shadow: none;
+}
+
+.permission-search button {
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #000000;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+.permission-search button:hover {
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.box-normal{
+    padding: 5px;
+    color: #FFFFFF;
+    background-color: #00FF00;
+    text-align: center;
+}
+
+.box-dangerous{
+    padding: 5px;
+    color: #FFFFFF;
+    background-color: #FF0000;
+    text-align: center;
+}
+
+.box-system{
+    padding: 5px;
+    color: #FFFFFF;
+    background-color: #888888;
+    text-align: center;
+}
