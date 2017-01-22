@@ -5,11 +5,11 @@ from flask import Flask, render_template, json, jsonify, make_response, Response
 
 app = Flask(__name__)
 
-with open(name=os.path.dirname(__file__) + '/static/json/permission_names.json') as perms_names_fp:
+with open(os.path.dirname(os.path.abspath(__file__)) + '/static/json/permission_names.json') as perms_names_fp:
     data = perms_names_fp.read().encode('ascii', 'ignore')
     perms_names = json.loads(data)
 
-with open(name=os.path.dirname(__file__) + '/static/json/permission_info.json') as perms_info_fp:
+with open(os.path.dirname(os.path.abspath(__file__)) + '/static/json/permission_info.json') as perms_info_fp:
     data = perms_info_fp.read().encode('ascii', 'ignore')
     perms_info = json.loads(data)
 
