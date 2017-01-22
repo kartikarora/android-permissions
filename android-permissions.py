@@ -1,6 +1,5 @@
 import os
 
-import untangle
 from dicttoxml import dicttoxml
 from flask import Flask, render_template, json, jsonify, make_response, Response
 
