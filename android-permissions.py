@@ -1,7 +1,32 @@
+"""
+    MIT License
+
+    Copyright (c) 2017 Kartik Arora
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+"""
 import os
+import re
 
 from dicttoxml import dicttoxml
 from flask import Flask, render_template, json, jsonify, make_response, Response
+from jinja2 import evalcontextfilter, Markup, escape
 
 app = Flask(__name__)
 
@@ -73,6 +98,17 @@ def detail_xml(permission):
 @app.route('/api')
 def api():
     return render_template('layout.html', container='api')
+
+
+@app.template_filter()
+@evalcontextfilter
+def nl2br(eval_ctx, value):
+    _paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
+    result = u'\n\n'.join(u'<h5>%s</h5>' % p.replace('\n', '<br>\n') \
+                          for p in _paragraph_re.split(escape(value)))
+    if eval_ctx.autoescape:
+        result = Markup(result)
+    return result
 
 
 port = os.getenv('PORT', '5000')

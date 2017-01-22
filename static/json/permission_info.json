@@ -206,35 +206,35 @@
     "deprecated": 0,
     "desc": "Must be required by a HostApduService or OffHostApduService to ensure that only the system can bind to it.",
     "constant": "android.permission.BIND_NFC_SERVICE",
-    "api_level": 1,
+    "api_level": 19,
     "level": -1
   },
   "REQUEST_IGNORE_BATTERY_OPTIMIZATIONS": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
-    "level": -1
+    "desc": "Permission an application must hold in order to use ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS.",
+    "constant": "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS",
+    "api_level": 23,
+    "level": 0
   },
   "RESTART_PACKAGES": {
-    "deprecated": 0,
-    "desc": "",
-    "constant": "",
+    "deprecated": 1,
+    "desc": "The restartPackage API is no longer supported.",
+    "constant": "android.permission.RESTART_PACKAGES",
     "api_level": 1,
-    "level": -1
+    "level": 0
   },
   "CALL_PRIVILEGED": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
+    "desc": "Allows an application to call any phone number, including emergency numbers, without going through the Dialer user interface for the user to confirm the call being placed.",
+    "constant": "android.permission.CALL_PRIVILEGED",
     "api_level": 1,
     "level": -1
   },
   "CAPTURE_SECURE_VIDEO_OUTPUT": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
+    "desc": "Allows an application to capture secure video output.\n\nNot for use by third-party applications.",
+    "constant": "android.permission.CAPTURE_SECURE_VIDEO_OUTPUT",
+    "api_level": 19,
     "level": -1
   },
   "INTERNET": {
@@ -246,80 +246,80 @@
   },
   "DELETE_PACKAGES": {
     "deprecated": 0,
-    "desc": "",
+    "desc": "Allows an application to delete packages.\n\nNot for use by third-party applications.\n\nStarting in N, user confirmation is requested when the application deleting the package is not the same application that installed the package.",
     "constant": "",
     "api_level": 1,
-    "level": -1
+    "level": 0
   },
   "CHANGE_COMPONENT_ENABLED_STATE": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
+    "desc": "Allows an application to change whether an application component (other than its own) is enabled or not.\n\nNot for use by third-party applications.",
+    "constant": "android.permission.CAPTURE_SECURE_VIDEO_OUTPUT",
+    "api_level": 19,
     "level": -1
   },
   "RECORD_AUDIO": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
+    "desc": "Allows an application to record audio.",
+    "constant": "android.permission.RECORD_AUDIO",
     "api_level": 1,
-    "level": -1
+    "level": 1
   },
   "VIBRATE": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
+    "desc": "Allows access to the vibrator.",
+    "constant": "android.permission.VIBRATE",
     "api_level": 1,
-    "level": -1
+    "level": 0
   },
   "WRITE_SECURE_SETTINGS": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
+    "desc": "Allows an application to read or write the secure system settings.\n\nNot for use by third-party applications.",
+    "constant": "android.permission.WRITE_SECURE_SETTINGS",
+    "api_level": 3,
     "level": -1
   },
   "UNINSTALL_SHORTCUT": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
-    "level": -1
+    "desc": "Allows an application to uninstall a shortcut in Launcher.",
+    "constant": "com.android.launcher.permission.UNINSTALL_SHORTCUT",
+    "api_level": 19,
+    "level": 0
   },
   "WRITE_CALL_LOG": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
-    "level": -1
+    "desc": "Allows an application to write (but not read) the user's call log data.\n\nNote: If your app uses the WRITE_CONTACTS permission and both your minSdkVersion and targetSdkVersion values are set to 15 or lower, the system implicitly grants your app this permission. If you don't need this permission, be sure your targetSdkVersion is 16 or higher.",
+    "constant": "android.permission.WRITE_CALL_LOG",
+    "api_level": 16,
+    "level": 1
   },
   "ACCESS_CHECKIN_PROPERTIES": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
+    "desc": "Allows read/write access to the \"properties\" table in the checkin database, to change values that get uploaded.\n\nNot for use by third-party applications.",
+    "constant": "android.permission.ACCESS_CHECKIN_PROPERTIES",
     "api_level": 1,
     "level": -1
   },
   "PACKAGE_USAGE_STATS": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
-    "level": -1
+    "desc": "Allows an application to collect component usage statistics.\n\nDeclaring the permission implies intention to use the API and the user of the device can grant permission through the Settings application.",
+    "constant": "android.permission.PACKAGE_USAGE_STATS",
+    "api_level": 23,
+    "level": 0
   },
   "GLOBAL_SEARCH": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
-    "level": -1
+    "desc": "This permission can be used on content providers to allow the global search system to access their data. Typically it used when the provider has some permissions protecting it (which global search would not be expected to hold), and added as a read-only permission to the path in the provider where global search queries are performed. This permission can not be held by regular applications; it is used by applications to protect themselves from everyone else besides global search.",
+    "constant": "android.permission.GLOBAL_SEARCH",
+    "api_level": 4,
+    "level": 0
   },
   "CHANGE_WIFI_STATE": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
+    "desc": "Allows applications to change Wi-Fi connectivity state.",
+    "constant": "android.permission.CHANGE_WIFI_STATE",
     "api_level": 1,
-    "level": -1
+    "level": 0
   },
   "BROADCAST_STICKY": {
     "deprecated": 0,
@@ -330,10 +330,10 @@
   },
   "KILL_BACKGROUND_PROCESSES": {
     "deprecated": 0,
-    "desc": "",
-    "constant": "",
+    "desc": "Allows an application to broadcast sticky intents. These are broadcasts whose data is held by the system after being finished, so that clients can quickly retrieve that data without having to wait for the next broadcast.",
+    "constant": "android.permission.BROADCAST_STICKY",
     "api_level": 1,
-    "level": -1
+    "level": 0
   },
   "BIND_INCALL_SERVICE": {
     "deprecated": 0,
