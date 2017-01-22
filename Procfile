@@ -1,1 +1,1 @@
-web: python Android Permissions.py
+web: python android-permissions.py
