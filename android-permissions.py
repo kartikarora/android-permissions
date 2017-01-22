@@ -23,16 +23,17 @@ def home():
 
 @app.route('/list')
 def list():
-    print perms_names
     return render_template('layout.html', container='list', permissions=perms_names)
 
 
 @app.route('/list/json', methods=['GET', 'POST'])
+@app.route('/api/list/json', methods=['GET', 'POST'])
 def list_json():
     return make_response(jsonify(perms_names), 200)
 
 
 @app.route('/list/xml', methods=['GET', 'POST'])
+@app.route('/api/list/xml', methods=['GET', 'POST'])
 def list_xml():
     response = make_response(perms_names_xml, 200)
     response.headers['Content-type'] = 'application/xml'
@@ -48,6 +49,7 @@ def detail(permission):
 
 
 @app.route('/detail/<string:permission>/json', methods=['GET', 'POST'])
+@app.route('/api/detail/<string:permission>/json', methods=['GET', 'POST'])
 def detail_json(permission):
     name = permission.upper()
     permission = perms_info[name]
@@ -57,6 +59,7 @@ def detail_json(permission):
 
 
 @app.route('/detail/<string:permission>/xml', methods=['GET', 'POST'])
+@app.route('/api/detail/<string:permission>/xml', methods=['GET', 'POST'])
 def detail_xml(permission):
     name = permission.upper()
     permission = perms_info[name]
@@ -65,6 +68,11 @@ def detail_xml(permission):
     response = make_response(dicttoxml(obj=permission, custom_root=name), 200)
     response.headers['Content-type'] = 'application/xml'
     return response
+
+
+@app.route('/api')
+def api():
+    return render_template('layout.html', container='api')
 
 
 port = os.getenv('PORT', '5000')

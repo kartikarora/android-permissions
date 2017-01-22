@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h2>You get an API! He gets and API! Everybody gets an <b>API</b></h2>
+        <p>&nbsp;</p>
+    </div>
+    <div class="col-md-12">
+        <h3>List API</h3>
+        <h4>Endpoint</h4>
+        <div class="col-md-12">
+            <pre class="col-md-5">/list/json</pre>
+            <span class="col-md-2 text-center"><b>OR</b></span>
+            <pre class="col-md-5">/list/xml</pre>
+        </div>
+        <h4>Response</h4>
+        <div class="col-md-12">
+            <pre class="col-md-5">
+[
+  &#x22;ACCESS_CHECKIN_PROPERTIES&#x22;,
+  &#x22;ACCESS_COARSE_LOCATION&#x22;,
+  &#x22;ACCESS_FINE_LOCATION&#x22;,
+  &#x22;ACCESS_LOCATION_EXTRA_COMMANDS&#x22;,
+  &#x22;ACCESS_NETWORK_STATE&#x22;,
+  &#x22;ACCESS_NOTIFICATION_POLICY&#x22;,
+  &#x22;ACCESS_WIFI_STATE&#x22;,
+  &#x22;ACCOUNT_MANAGER&#x22;,
+]
+            </pre>
+            <span class="col-md-2 text-center"><b>OR</b></span>
+            <pre class="col-md-5">
+&#x3C;?xml version=&#x22;1.0&#x22; encoding=&#x22;UTF-8&#x22; ?&#x3E;
+&#x3C;permissions&#x3E;
+    &#x3C;item type=&#x22;str&#x22;&#x3E;ACCESS_CHECKIN_PROPERTIES&#x3C;/item&#x3E;
+    &#x3C;item type=&#x22;str&#x22;&#x3E;ACCESS_COARSE_LOCATION&#x3C;/item&#x3E;
+    &#x3C;item type=&#x22;str&#x22;&#x3E;ACCESS_FINE_LOCATION&#x3C;/item&#x3E;
+    &#x3C;item type=&#x22;str&#x22;&#x3E;ACCESS_LOCATION_EXTRA_COMMANDS&#x3C;/item&#x3E;
+    &#x3C;item type=&#x22;str&#x22;&#x3E;ACCESS_NETWORK_STATE&#x3C;/item&#x3E;
+    &#x3C;item type=&#x22;str&#x22;&#x3E;ACCESS_NOTIFICATION_POLICY&#x3C;/item&#x3E;
+    &#x3C;item type=&#x22;str&#x22;&#x3E;ACCESS_WIFI_STATE&#x3C;/item&#x3E;
+    &#x3C;item type=&#x22;str&#x22;&#x3E;ACCOUNT_MANAGER&#x3C;/item&#x3E;
+    ...
+&#x3C;/permissions&#x3E;
+            </pre>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <h3>Detail API</h3>
+        <h4>Endpoint</h4>
+        <div class="col-md-12">
+            <pre class="col-md-5">/detail/permission_name/json</pre>
+            <span class="col-md-2 text-center"><b>OR</b></span>
+            <pre class="col-md-5">/list/permission_name/xml</pre>
+        </div>
+        <h4>Response (e.g. CAMERA)</h4>
+        <div class="col-md-12">
+            <pre class="col-md-5">
+{
+  &#x22;api_level&#x22;: 1,
+  &#x22;constant&#x22;: &#x22;android.permission.CAMERA&#x22;,
+  &#x22;deprecated&#x22;: 0,
+  &#x22;desc&#x22;: &#x22;Required to be able to access the camera device.\n\nThis will automatically enforce the manifest element for all camera features. If you do not require all camera features or can properly operate if a camera is not available, then you must modify your manifest as appropriate in order to install on devices that don&#x27;t support all camera features.&#x22;,
+  &#x22;level&#x22;: 1,
+  &#x22;name&#x22;: &#x22;CAMERA&#x22;,
+  &#x22;url&#x22;: &#x22;https://developer.android.com/reference/android/Manifest.permission.html#CAMERA&#x22;
+}
+            </pre>
+            <span class="col-md-2 text-center"><b>OR</b></span>
+            <pre class="col-md-5">
+&#x3C;CAMERA&#x3E;
+    &#x3C;constant type=&#x22;str&#x22;&#x3E;android.permission.CAMERA&#x3C;/constant&#x3E;
+    &#x3C;name type=&#x22;str&#x22;&#x3E;CAMERA&#x3C;/name&#x3E;
+    &#x3C;level type=&#x22;int&#x22;&#x3E;1&#x3C;/level&#x3E;
+    &#x3C;url type=&#x22;str&#x22;&#x3E;
+        https://developer.android.com/reference/android/Manifest.permission.html#CAMERA
+    &#x3C;/url&#x3E;
+    &#x3C;deprecated type=&#x22;int&#x22;&#x3E;0&#x3C;/deprecated&#x3E;
+    &#x3C;api_level type=&#x22;int&#x22;&#x3E;1&#x3C;/api_level&#x3E;
+    &#x3C;desc type=&#x22;str&#x22;&#x3E;
+        Required to be able to access the camera device. This will automatically enforce the manifest element for all camera features. If you do not require all camera features or can properly operate if a camera is not available, then you must modify your manifest as appropriate in order to install on devices that don&#x27;t support all camera features.
+    &#x3C;/desc&#x3E;
+&#x3C;/CAMERA&#x3E;
+            </pre>
+        </div>
+        <p><b>API Level</b>: API level from which the permission is available.</p>
+        <p><b>Constant</b>: <code>String</code> constant of the permission.</p>
+        <p><b>Deprecated</b>: 1 if permission is deprecated, 0 otherwise</p>
+        <p><b>Desc</b>: Description of the permission</p>
+        <p><b>Level</b>: -1 - System | 0 - Normal | 1 - Dangerous</p>
+        <p><b>Name</b>: Name of the permission</p>
+        <p><b>Url</b>: Reference URL for the permission on Android Developer documentation</p>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+</div>

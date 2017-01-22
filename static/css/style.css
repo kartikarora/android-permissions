@@ -60,21 +60,21 @@ body {
     float: none;
 }
 
-.box-normal{
+.box-normal {
     padding: 5px;
     color: #FFFFFF;
     background-color: #6ab344;
     text-align: center;
 }
 
-.box-dangerous{
+.box-dangerous {
     padding: 5px;
     color: #FFFFFF;
     background-color: #FF0000;
     text-align: center;
 }
 
-.box-system{
+.box-system {
     padding: 5px;
     color: #FFFFFF;
     background-color: #888888;

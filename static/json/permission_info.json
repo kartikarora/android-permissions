@@ -1,17 +1,17 @@
 {
   "ADD_VOICEMAIL": {
-    "deprecated": 1,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
-    "level": -1
+    "deprecated": 0,
+    "desc": "Allows an application to add voicemails into the system.",
+    "constant": "com.android.voicemail.permission.ADD_VOICEMAIL",
+    "api_level": 14,
+    "level": 1
   },
   "USE_SIP": {
-    "deprecated": 1,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
-    "level": -1
+    "deprecated": 0,
+    "desc": "Allows an application to use SIP service.",
+    "constant": "android.permission.USE_SIP",
+    "api_level": 9,
+    "level": 1
   },
   "CAMERA": {
     "deprecated": 0,
@@ -21,58 +21,58 @@
     "level": 1
   },
   "BIND_CONDITION_PROVIDER_SERVICE": {
-    "deprecated": 1,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
+    "deprecated": 0,
+    "desc": "Must be required by a ConditionProviderService, to ensure that only the system can bind to it.",
+    "constant": "android.permission.BIND_CONDITION_PROVIDER_SERVICE",
+    "api_level": 24,
     "level": -1
   },
   "BIND_QUICK_SETTINGS_TILE": {
-    "deprecated": 1,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
-    "level": -1
+    "deprecated": 0,
+    "desc": "Allows an application to bind to third party quick settings tiles.\n\nShould only be requested by the System, should be required by TileService declarations.",
+    "constant": "android.permission.BIND_QUICK_SETTINGS_TILE",
+    "api_level": 24,
+    "level": 0
   },
   "MASTER_CLEAR": {
-    "deprecated": 1,
-    "desc": "",
-    "constant": "",
+    "deprecated": 0,
+    "desc": "Not for use by third-party applications.",
+    "constant": "android.permission.MASTER_CLEAR",
     "api_level": 1,
     "level": -1
   },
   "BIND_DEVICE_ADMIN": {
-    "deprecated": 1,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
+    "deprecated": 0,
+    "desc": "Must be required by device administration receiver, to ensure that only the system can interact with it.",
+    "constant": "android.permission.BIND_DEVICE_ADMIN",
+    "api_level": 8,
     "level": -1
   },
   "GET_ACCOUNTS_PRIVILEGED": {
-    "deprecated": 1,
-    "desc": "",
-    "constant": "",
-    "api_level": 1,
-    "level": -1
+    "deprecated": 0,
+    "desc": "Allows access to the list of accounts in the Accounts Service.",
+    "constant": "android.permission.GET_ACCOUNTS_PRIVILEGED",
+    "api_level": 23,
+    "level": 0
   },
   "READ_SYNC_SETTINGS": {
-    "deprecated": 1,
-    "desc": "",
-    "constant": "",
+    "deprecated": 0,
+    "desc": "Allows applications to read the sync settings.",
+    "constant": "android.permission.READ_SYNC_SETTINGS",
     "api_level": 1,
-    "level": -1
+    "level": 0
   },
   "FACTORY_TEST": {
-    "deprecated": 1,
-    "desc": "",
-    "constant": "",
+    "deprecated": 0,
+    "desc": "Run as a manufacturer test application, running as the root user. Only available when the device is running in manufacturer test mode.\n\nNot for use by third-party applications.",
+    "constant": "android.permission.FACTORY_TEST",
     "api_level": 1,
     "level": -1
   },
   "SET_ALWAYS_FINISH": {
-    "deprecated": 1,
-    "desc": "",
-    "constant": "",
+    "deprecated": 0,
+    "desc": "Allows an application to control whether activities are immediately finished when put in the background.\n\nNot for use by third-party applications.",
+    "constant": "android.permission.SET_ALWAYS_FINISH",
     "api_level": 1,
     "level": -1
   },
